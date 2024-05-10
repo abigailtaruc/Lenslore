@@ -28,4 +28,6 @@
     <string name="enter_your_otp">Enter your OTP</string>
     <string name="enter_the_otp_receive_in_your_email_to_verify_account">Enter the OTP receive in your email to verify account.</string>
     <string name="the_email_or_password_is_incorrect_try_again">the_email_or_password_is_incorrect_try_again</string>
+    <string name="cancel">Cancel</string>
+    <string name="report_post">Report <font fgcolor="#ff9a1d1d">@aaronmatt</font>'s post</string>
 </resources>
