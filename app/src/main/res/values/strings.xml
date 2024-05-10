@@ -29,5 +29,8 @@
     <string name="enter_the_otp_receive_in_your_email_to_verify_account">Enter the OTP receive in your email to verify account.</string>
     <string name="the_email_or_password_is_incorrect_try_again">the_email_or_password_is_incorrect_try_again</string>
     <string name="cancel">Cancel</string>
-    <string name="report_post">Report <font fgcolor="#ff9a1d1d">@aaronmatt</font>'s post</string>
+    <string name="report_post">Report <font fgcolor="#E01818">@aaronmatt</font>'s post</string>
+    <string name="report_page_description">We are asking the reason for the reporting because we want to know what you’re experiencing or seeing. This helps us figure out what’s going on here and resolve the issue more quickly and accurately.</string>
+    <string name="send">send</string>
+
 </resources>
