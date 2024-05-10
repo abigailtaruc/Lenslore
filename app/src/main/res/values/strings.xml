@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Lenslore</string>
+    <string name="welcome_to">WELCOME TO</string>
+    <string name="description_text">Dive into your passion and showcase the world your marvelous works.</string>
+    <string name="sign_up">Sign up</string>
+    <string name="log_in">Log in</string>
+    <string name="title_activity_log_in">LogInActivity</string>
+    <string name="title_activity_test">test</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="don_t_have_an_account">Don’t have an account?</string>
+    <string name="create_your_account">Create your Account</string>
+    <string name="name">Name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="let_s_share_your_work_to_the_world">Let\'s share your work to the world</string>
+    <string name="back">back</string>
+    <string name="please_enter_your_email_to_receive_your_otp_to_reset_your_password">Please enter your email to receive your OTP to reset your password.</string>
+    <string name="you_will_receive_an_otp_on_this_email">You will receive an OTP on this email</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="use_a_different_password_from_the_past_please_note_down_this_password_so_you_don_t_forget_dum_dum_tq">Use a different password from the past. Please note down this password so you don’t forget dum dum. TQ</string>
+    <string name="next">Next</string>
+    <string name="enter_your_otp">Enter your OTP</string>
+    <string name="enter_the_otp_receive_in_your_email_to_verify_account">Enter the OTP receive in your email to verify account.</string>
+    <string name="the_email_or_password_is_incorrect_try_again">the_email_or_password_is_incorrect_try_again</string>
+</resources>
