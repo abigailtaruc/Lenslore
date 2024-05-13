@@ -29,7 +29,6 @@
         android:textStyle="bold"
         android:layout_marginTop="15dp"
         android:paddingHorizontal="30dp"
-        android:layout_left="true"
         android:layout_below="@+id/cancel_btn"
         />
 
@@ -56,11 +55,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        layout/>
+        android:layout_below="@id/dropdown_report_post"
+        android:hint="testing"
+        android:paddingHorizontal="30dp"/>
 
 
     <Button
-        android:id="@id/send_btn"
+        android:id="@+id/send_btn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:paddingVertical="15dp"
