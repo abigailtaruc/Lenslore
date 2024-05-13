@@ -36,11 +36,17 @@
 
     </RelativeLayout>
 
+    <!-- <include layout="@layout/post_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"/> -->
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyler"
+        android:id="@+id/post_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/header"/>
+        android:layout_below="@+id/header"
+        android:layout_marginBottom="65dp"/>
 
     <RelativeLayout
         android:id="@+id/navigation_bar"
