@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTintMode="add"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/round_btn"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profile_icon_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/field_background"
+            app:cardCornerRadius="60dp"
+            android:elevation="32dp">
+
+            <ImageView
+                android:id="@+id/profile_icon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/profile_icon"
+                android:scaleType="centerCrop"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/profile_icon_layout"
+            android:text="Aaron Black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/unique_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/username"
+            android:textSize="16dp"
+            android:text="\@aaronblack1"
+            android:layout_marginStart="10dp"
+            />
+
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/trash_icon"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/report_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/flag_icon"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:19 AM"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/username"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/profile_icon_layout"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/caption"
+            android:layout_below="@+id/profile_icon_layout"
+            android:text="This is caption"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginVertical="20dp"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/picture_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/caption"
+            app:cardCornerRadius="20dp"
+            android:backgroundTint="@color/black"
+            android:layout_marginBottom="20dp">
+            <ImageView
+                android:id="@+id/picture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/test"
+                android:scaleType="center"
+                android:padding="1dp"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/comment_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/comment_icon"
+            android:layout_below="@id/picture_layout"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/comment_count"
+            android:layout_below="@+id/picture_layout"
+            android:layout_toEndOf="@id/comment_icon"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="200"/>
+
+        <ImageView
+            android:id="@+id/like_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/heart_icon"
+            android:layout_below="@+id/picture_layout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="100dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/like_count"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:layout_marginStart="-90dp"
+            android:layout_below="@id/picture_layout"
+            android:text="100"
+            android:layout_toEndOf="@id/like_icon"/>
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
