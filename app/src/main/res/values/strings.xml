@@ -35,5 +35,13 @@
     <string name="post">Post</string>
     <string name="caption_text">Add a caption to your post</string>
     <string name="char_limit">0/50</string>
-
+    <string name="additional_info_text">Add additional information to help with your report</string>
+    <string-array name="dropdown_report_post">
+        <item>Select the reason...</item>
+        <item>Going against guidelines</item>
+        <item>Has violent content</item>
+        <item>Stolen content from other creator</item>
+        <item>Ugly</item>
+        <item>I do not like it</item>
+    </string-array>
 </resources>
