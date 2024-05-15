@@ -31,4 +31,5 @@ class PostAdapter(private val accountList : ArrayList<Account>) : RecyclerView.A
         val username : TextView = itemView.findViewById(R.id.username)
         val uniqueUsername : TextView = itemView.findViewById(R.id.unique_name)
     }
+
 }
