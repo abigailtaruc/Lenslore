@@ -1,11 +1,15 @@
 package com.example.lenslore
-
+import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.os.Bundle
+import android.view.View
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+
 
 class ReportPostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,14 +22,14 @@ class ReportPostActivity : AppCompatActivity() {
         val data = resources.getStringArray(R.array.report_reasons).toList()
 
         // Create an ArrayAdapter using your custom layout for both main view and dropdown
-        val adapter = ArrayAdapter<String>(this, R.layout.item_spinner, data)
-        adapter.setDropDownViewResource(R.layout.item_spinner) // Use custom layout for dropdown too
+        val adapter = ArrayAdapter<String>(this, com.google.android.material.R.layout.support_simple_spinner_dropdown_item, data)
+        adapter.setDropDownViewResource(com.google.android.material.R.layout.support_simple_spinner_dropdown_item) // Use custom layout for dropdown too
         spinner.adapter = adapter
 
         // Handle spinner selection (optional)
         spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-                val selectedReason = reasons[pos]
+            override fun onItemSelected(parent: AdapterView<*>, view : View?, pos: Int, id: Long) {
+                val selectedReason = parent.getItemAtPosition(pos)
                 Toast.makeText(this@ReportPostActivity, "Selected: $selectedReason", Toast.LENGTH_SHORT).show()
             }
 
@@ -41,13 +45,14 @@ class ReportPostActivity : AppCompatActivity() {
             insets
         }
 
+        /*
         if (this is AdapterView.OnItemSelectedListener) {
             spinner.onItemSelectedListener = this as AdapterView.OnItemSelectedListener
             Toast.makeText(this, "Class implements OnItemSelectedListener", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, "Class does NOT implement OnItemSelectedListener", Toast.LENGTH_SHORT).show()
             // Handle the case where the class doesn'  t implement the listener
-        }
+        }*/
 
     }
 }

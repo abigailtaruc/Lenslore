@@ -48,7 +48,7 @@
 
     <Spinner
         android:id="@+id/dropdown_report_post"
-        android:entries="@array/dropdown_report_post"
+        android:entries="@array/report_reasons"
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:layout_below="@+id/report_page_description"
