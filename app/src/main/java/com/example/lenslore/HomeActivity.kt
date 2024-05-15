@@ -1,5 +1,6 @@
 package com.example.lenslore
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -8,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -63,4 +65,11 @@ class HomeActivity : AppCompatActivity() {
         setResult(4)
         finish()
     }
+
+    fun onUploadClicked(view: View?) {
+        // Create an Intent to navigate to the UploadActivity
+        val intent = Intent(this, UploadActivity::class.java)
+        startActivity(intent) // Start the UploadActivity
+    }
+
 }
