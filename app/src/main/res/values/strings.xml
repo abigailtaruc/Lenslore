@@ -32,5 +32,13 @@
     <string name="report_post">Report <font fgcolor="#E01818">@aaronmatt</font>\'s post</string>
     <string name="report_page_description">We are asking the reason for the reporting because we want to know what you’re experiencing or seeing. This helps us figure out what’s going on here and resolve the issue more quickly and accurately.</string>
     <string name="send">send</string>
-
+    <string name="additional_info_text">Add additional information to help with your report</string>
+    <string-array name="dropdown_report_post">
+        <item>Select the reason...</item>
+        <item>Going against guidelines</item>
+        <item>Has violent content</item>
+        <item>Stolen content from other creator</item>
+        <item>Ugly</item>
+        <item>I do not like it</item>
+    </string-array>
 </resources>
