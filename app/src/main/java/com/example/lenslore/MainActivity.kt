@@ -8,6 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter.ofPattern
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

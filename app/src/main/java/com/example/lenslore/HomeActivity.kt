@@ -1,7 +1,10 @@
 package com.example.lenslore
 
 import android.os.Bundle
+import android.text.Layout
 import android.view.View
+import android.view.WindowManager
+import android.widget.RelativeLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -9,14 +12,18 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var postRecycler : RecyclerView
-    private lateinit var postArrayList: ArrayList<Account>
-    //lateinit var profileId : ArrayList<Int>
-    lateinit var username : ArrayList<String>
-    lateinit var uniqueUsername : ArrayList <String>
+    lateinit var postRecycler : RecyclerView
+    lateinit var commentRecycler : RecyclerView
+    lateinit var commentSection : RelativeLayout
+    var lastComment : Int = 0
+    private lateinit var db : Database
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE or WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
@@ -25,42 +32,78 @@ class HomeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        //Account(R.drawable.mountain, 1, "test", "test2", "test3", "test4")
-        // = arrayListOf(R.drawable.mountain, R.drawable.phonecam, R.drawable.test)
-        username = arrayListOf("test1", "test2", "test3")
-        uniqueUsername = arrayListOf("@test1", "@test2", "@test3")
-
         postRecycler = findViewById(R.id.post_recycler)
+        commentRecycler = findViewById(R.id.comment_recycler)
+        commentSection = findViewById(R.id.comment_section)
+
+        db = Database(this)
+
+        var account = Account(1,"test4", "password1", "test1@")
+        //db.insertData(account)
+        account = Account(2,"success", "password2", "test2@")
+        //db.insertData(account)
+        account = Account(3,"test6", "password3", "test3@")
+        //db.insertData(account)
+
+        var post = Post(2, R.drawable.test, "testcaption2", "10:00")
+        //db.insertData(post)
+        post = Post(3, R.drawable.mountain2, "testcaption3", "12:00")
+        //db.insertData(post)
+        post = Post(1, R.drawable.camera_icon, "testcaption1", "1:00")
+        //db.insertData(post)
+
+        var comment = Comment(1, 2, "a")
+        db.insertData(comment)
+        comment = Comment(1, 1, "aasd")
+        db.insertData(comment)
+        comment = Comment(2, 3, "aasd")
+        db.insertData(comment)
+
+        var like = Like(1, 2, 2)
+        //db.insertData(like)
+        like = Like(1, 2, 1)
+        //db.insertData(like)
+        like = Like(1, 1, 3)
+        //db.insertData(like)
+        postRecycler.adapter = PostAdapter(db.readPost(), this)
         postRecycler.layoutManager = LinearLayoutManager(this)
 
-        postArrayList = arrayListOf<Account>()
-        //getUserData()
-        postArrayList.add(Account(1, R.drawable.mountain, "test1", "@test1", "test1@", "just test 1"))
-        postArrayList.add(Account(2, R.drawable.test, "test2", "@test2", "test2@", "just test 2"))
-        postArrayList.add(Account(3, R.drawable.profile_icon, "test3", "@test3", "test3@", "just test 3"))
-        postArrayList.add(Account(4, R.drawable.mountain2, "test4", "@test4", "test4@", "just test 4"))
 
+        commentRecycler.layoutManager = LinearLayoutManager(this)
 
-        postRecycler.adapter = PostAdapter(postArrayList)
-
-
+        db.close()
     }
-
-    /*
-    private fun getUserData() {
-        for (i in profileId.indices){
-            val post = Account(profileId[i], i, username[i], uniqueUsername[i], "email", "hello")
-            postArrayList.add(post)
-        }
-
-        postRecycler.adapter = PostAdapter(postArrayList)
-    }
-    */
-
 
     fun signUpClicked(view: View) {
         setResult(4)
         finish()
     }
+
+    fun deletePost(view: View) {
+        val db = Database(this)
+        db.deletePost(view.getTag().toString().toInt())
+        postRecycler.adapter = PostAdapter(db.readPost(), this)
+        db.close()
+    }
+
+    fun reportPost(view: View) {}
+    fun deleteComment(view: View) {
+        val db = Database(this)
+        db.deleteComment(view.getTag().toString().toInt())
+        commentRecycler.adapter = CommentAdapter(db.readComment(lastComment), this)
+        db.close()
+    }
+    fun reportComment(view: View) {}
+    fun closeComment(view: View) {
+        commentSection.visibility = View.GONE
+    }
+
+    fun openComment(view: View) {
+        lastComment = view.getTag().toString().toInt()
+        commentRecycler.adapter = CommentAdapter(db.readComment(view.getTag().toString().toInt()), this)
+        commentSection.visibility = View.VISIBLE
+
+    }
+
+    //stop crash when result is zero, find way to not refresh
 }

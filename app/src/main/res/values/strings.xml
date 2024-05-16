@@ -32,5 +32,7 @@
     <string name="report_post">Report <font fgcolor="#E01818">@aaronmatt</font>\'s post</string>
     <string name="report_page_description">We are asking the reason for the reporting because we want to know what you’re experiencing or seeing. This helps us figure out what’s going on here and resolve the issue more quickly and accurately.</string>
     <string name="send">send</string>
+    <string name="comment">Comment</string>
+    <string name="add_your_comments">Add your comments...</string>
 
 </resources>

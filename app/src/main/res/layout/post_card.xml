@@ -50,8 +50,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/username"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:text="\@aaronblack1"
+            android:textColor="@color/darker_field_background"
             android:layout_marginStart="10dp"
             />
 
@@ -62,7 +63,9 @@
             app:srcCompat="@drawable/trash_icon"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
-            android:visibility="gone"/>
+            android:visibility="visible"
+            android:tag="abc"
+            android:onClick="deletePost"/>
 
         <ImageView
             android:id="@+id/report_icon"
@@ -71,10 +74,11 @@
             app:srcCompat="@drawable/flag_icon"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
-            android:visibility="visible"/>
+            android:visibility="gone"
+            android:onClick="reportPost"/>
 
         <TextView
-            android:id="@+id/timestamp"
+            android:id="@+id/post_timestamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10:19 AM"
@@ -120,7 +124,8 @@
             android:layout_height="50dp"
             app:srcCompat="@drawable/comment_icon"
             android:layout_below="@id/picture_layout"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="10dp"
+            android:onClick="openComment"/>
 
         <TextView
             android:layout_width="wrap_content"
