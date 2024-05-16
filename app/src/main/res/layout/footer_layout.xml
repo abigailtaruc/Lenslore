@@ -29,7 +29,9 @@
             android:layout_toEndOf="@+id/home"
             android:layout_marginStart="25dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/search_icon2" />
+            android:src="@drawable/search_icon2"
+            android:clickable="true"
+            android:onClick="onSearch"/>
 
 
         <ImageView
@@ -51,6 +53,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:src="@drawable/profile_icon" />
+
+
 
     </RelativeLayout>
 

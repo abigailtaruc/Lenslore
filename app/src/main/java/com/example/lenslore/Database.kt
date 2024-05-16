@@ -230,6 +230,37 @@ class Database (var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         return Account(result.getInt(0), result.getInt(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), result.getString(6));
     }
 
+    fun readMultiAccount() : MutableList<Account> {
+        var db = this.readableDatabase
+        var returnList: MutableList<Account> = ArrayList()
+        val select = "SELECT * FROM $ACCOUNT_TABLE"
+        val result = db.rawQuery(select, null)
+        if(result.moveToFirst()){
+            do {
+                val account = Account(result.getInt(0),    result.getString(2), result.getString(4), result.getString(5))
+                returnList.add(account)
+            } while (result.moveToNext())
+        }
+        result.close()
+        db.close()
+        return returnList
+    }
+    fun readMultiAccount(accId: Int) : MutableList<Account> {
+        var db = this.readableDatabase
+        var returnList: MutableList<Account> = ArrayList()
+        val select = "SELECT * FROM $ACCOUNT_TABLE WHERE $ACCOUNT_ID = $accId"
+        val result = db.rawQuery(select, null)
+        if(result.moveToFirst()){
+            do {
+                val account = Account(result.getInt(0),    result.getString(2), result.getString(4), result.getString(5))
+                returnList.add(account)
+            } while (result.moveToNext())
+        }
+        result.close()
+        db.close()
+        return returnList
+    }
+
 
     fun readAccount() : MutableList<Account>{
         var db = this.readableDatabase

@@ -31,17 +31,33 @@
             android:layout_below="@+id/Lenslore"
             android:layout_centerHorizontal="true"
             android:hint="Search account..."
+            android:paddingStart="10dp"
+            android:layout_marginVertical="20dp"
+            android:clickable="true"
             />
 
         <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:id="@+id/search_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/search_icon"
             android:layout_toEndOf="@id/search_badge"
             android:layout_alignBottom="@id/search_badge"
-            android:layout_marginStart="-60dp"/>
+            android:layout_marginStart="-60dp"
+            android:onClick="searchAcc"
+            />
 
-        <include layout=""
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/search_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search_badge"
+            android:layout_marginBottom="65dp"
+            android:paddingStart="10dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <include layout="@layout/footer_layout"/>
     </RelativeLayout>
 
 

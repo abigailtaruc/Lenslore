@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Lifecycle
 
 class LogInActivity : AppCompatActivity() {
+    private lateinit var db : Database
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,6 +23,14 @@ class LogInActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        db = Database(this)
+        var account = Account(1,"Account 1", "password1", "test1@")
+        //db.insertData(account)
+
+        var comment = Comment(1, 2, "a")
+        //db.insertData(comment)
+        Toast.makeText(this, db.readMultiAccount().toString(), Toast.LENGTH_SHORT).show()
     }
 
     fun backClicked(view: View) {
