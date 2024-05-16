@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
-    android:background="@color/field_background">
+    android:background="@color/field_background"
+    android:layout_gravity="center">
 
     <RelativeLayout
         android:id="@+id/header"
@@ -111,6 +112,14 @@
         android:clickable="true"
         android:onClick="onUploadClicked"
         />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/comment_section"
+        android:visibility="visible">
+        <include layout="@layout/comment"/>
+    </RelativeLayout>
 
 
 </RelativeLayout>
