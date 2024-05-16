@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/Lenslore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/dark"
+            android:textSize="28sp"
+            android:textAllCaps="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/search_badge"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_btn"
+            android:layout_below="@+id/Lenslore"
+            android:layout_centerHorizontal="true"
+            android:hint="Search account..."
+            />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/search_icon"
+            android:layout_toEndOf="@id/search_badge"
+            android:layout_alignBottom="@id/search_badge"
+            android:layout_marginStart="-60dp"/>
+
+        <include layout=""
+    </RelativeLayout>
+
+
+</RelativeLayout>
