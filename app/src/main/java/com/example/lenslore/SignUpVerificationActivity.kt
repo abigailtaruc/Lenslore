@@ -3,6 +3,8 @@ package com.example.lenslore
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,12 +23,29 @@ class SignUpVerificationActivity : AppCompatActivity() {
     }
 
     fun backClicked(view: View) {
+        //var db = Database(this)
+        //var everyone = db.readData()
+        //Toast.makeText(this, everyone.toString(), Toast.LENGTH_SHORT).show()
+
         finish()
     }
 
     fun nextClicked(view: View) {
+        //var account = Account("testdatabase2", "acad7y", "test@test.com")
+        //var db = Database(this)
+        //db.insertData(account)
         startActivityForResult(Intent(this, HomeActivity::class.java),4)
     }
+    /*
+    fun nextClicked(view: View) {
+        TODO("Insert account into db")
+        //var account = Account("testdatabase", "acad", "test@test.com")
+        //var db = Database(this)
+        //db.insertData(account)
+        Toast.makeText(this, "testing", Toast.LENGTH_SHORT).show()
+        //startActivityForResult(Intent(this, HomeActivity::class.java),4)
+    }
+     */
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

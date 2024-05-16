@@ -29,7 +29,6 @@
         android:textStyle="bold"
         android:layout_marginTop="15dp"
         android:paddingHorizontal="30dp"
-        android:layout_left="true"
         android:layout_below="@+id/cancel_btn"
         />
 
@@ -38,29 +37,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/report_page_description"
+        android:justificationMode="inter_word"
         android:textColor="@color/dark"
         android:textSize="18dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
         android:paddingHorizontal="30dp"
         android:layout_below="@+id/report_post_title"
         />
 
     <Spinner
         android:id="@+id/dropdown_report_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:entries="@array/report_reasons"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/report_page_description"
         android:paddingHorizontal="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_btn"
         />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        layout/>
+        android:id="@+id/additional_info"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:layout_below="@id/dropdown_report_post"
+        android:hint="@string/additional_info_text"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:paddingHorizontal="30dp"
+        android:paddingTop="@dimen/edit_text_top_padding"
+        android:gravity="top|left"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_btn"
+        />
 
 
     <Button
-        android:id="@id/send_btn"
+        android:id="@+id/send_btn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:paddingVertical="15dp"
@@ -69,9 +83,9 @@
         android:backgroundTint="@color/red"
         android:textSize="20sp"
         android:layout_marginHorizontal="35dp"
-        android:layout_margin="20dp"
+        android:layout_marginEnd="30dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/additional_info"
         android:background="@drawable/round_btn"
         />
 
