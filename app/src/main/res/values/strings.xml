@@ -38,6 +38,7 @@
     <string name="post">Post</string>
     <string name="caption_text">Add a caption to your post</string>
     <string name="char_limit">0/50</string>
+    <string name="chats">Chats</string>
     <string-array name="report_reasons">
         <item>Select the reason...</item>
         <item>Going against guidelines</item>

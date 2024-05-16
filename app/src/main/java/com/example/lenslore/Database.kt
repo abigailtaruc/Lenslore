@@ -146,12 +146,14 @@ class Database (var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         if (result == (-1).toLong()){
             Toast.makeText(context, "Error sending message", Toast.LENGTH_SHORT).show()
         }
-        /*
+
         else {
-            Toast.makeText(context, "Account created successfully", Toast.LENGTH_SHORT).show()
-        }*/
+            Toast.makeText(context, "vhat", Toast.LENGTH_SHORT).show()
+        }
         db.close()
     }
+
+
 
     fun insertData(comment: Comment){
         val db = this.writableDatabase
@@ -259,6 +261,52 @@ class Database (var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
                 val chat = Chat(result.getInt(0),    result.getInt(1), result.getInt(2), result.getString(3), result.getString(4))
                 returnList.add(chat)
             } while (result.moveToNext())
+        }
+        else {
+            TODO("no content")
+            Toast.makeText(context, "No Post", Toast.LENGTH_SHORT).show()
+        }
+        result.close()
+        db.close()
+        return returnList
+    }
+
+    fun readChat(accId: Int) : MutableList<Chat>{
+        var db = this.readableDatabase
+        var returnList: MutableList<Chat> = ArrayList()
+        val select = "SELECT * FROM $CHAT_TABLE WHERE $ACCOUNT_ID_1 = $accId"
+        val result = db.rawQuery(select, null)
+        if (result.moveToFirst()){
+            do {
+                val chat = Chat(result.getInt(0),    result.getInt(1), result.getInt(2), result.getString(3), result.getString(4))
+                returnList.add(chat)
+            } while (result.moveToNext())
+        }
+        else {
+            TODO("no content")
+            Toast.makeText(context, "No Post", Toast.LENGTH_SHORT).show()
+        }
+        result.close()
+        db.close()
+        return returnList
+    }
+
+    fun readLastChat(acc1Id: Int) : MutableList<Chat>{
+        var db = this.readableDatabase
+        var returnList: MutableList<Chat> = ArrayList()
+        val select = "SELECT * FROM $CHAT_TABLE WHERE $ACCOUNT_ID_1 = $acc1Id AND $ACCOUNT_ID_2 = (SELECT DISTINCT ($ACCOUNT_ID_2) FROM $CHAT_TABLE WHERE $ACCOUNT_ID_1 = $acc1Id) ORDER BY $CHAT_TIMESTAMP DESC"
+        val result = db.rawQuery(select, null)
+        if (result.moveToFirst()){
+            var secondId : Int = -1
+            do{
+                var chat = Chat(result.getInt(0),    result.getInt(1), result.getInt(2), result.getString(3), result.getString(4))
+                if (chat.accountId2 != secondId){
+                    returnList.add(chat)
+                }
+                else {
+                    secondId = chat.accountId2
+                }
+            }while (result.moveToNext())
         }
         else {
             TODO("no content")
