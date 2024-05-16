@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <Button
+        android:id="@+id/cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:textSize="18sp"
+        android:background="@color/transparent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/black"
+        android:onClick="backClicked"
+        />
+
+    <TextView
+        android:id="@+id/settingsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/settings"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/cancel_btn"
+        />
+
+    <TextView
+        android:id="@+id/edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_profile"
+        android:layout_marginTop="40dp"
+        android:paddingHorizontal="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_below="@+id/settingsTextView"
+        />
+
+    <TextView
+        android:id="@+id/delete_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_account"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:layout_below="@+id/edit_profile"
+        />
+
+    <TextView
+        android:id="@+id/log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_below="@+id/delete_account"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        layout
+        />
+
+</RelativeLayout>
