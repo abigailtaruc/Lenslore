@@ -7,4 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".ChatActivity">
 
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_transparent"
+        android:padding="10dp"
+        android:elevation="32dp">
+
+        <TextView
+            android:id="@+id/chats_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chats"
+            android:textColor="@color/dark"
+            android:textSize="26sp"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/settings"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/burger_icon" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginBottom="65dp"/>
+
+    <include layout="@layout/footer_layout"/>
+
+
 </RelativeLayout>
