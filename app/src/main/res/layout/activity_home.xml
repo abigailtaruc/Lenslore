@@ -108,7 +108,10 @@
         android:backgroundTint="@color/white"
         android:src="@drawable/upload_icon"
         android:layout_marginBottom="15dp"
-        android:padding="3dp"/>
+        android:padding="3dp"
+        android:clickable="true"
+        android:onClick="onUploadClicked"
+        />
 
     <RelativeLayout
         android:layout_width="wrap_content"

@@ -61,4 +61,5 @@ class PostAdapter(private val postList: MutableList<Post>, var context : Context
         val likeIcon : ImageView = itemView.findViewById(R.id.like_icon)
         val likeCount : TextView = itemView.findViewById(R.id.like_count)
     }
+
 }

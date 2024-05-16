@@ -11,4 +11,5 @@
     <color name="transparent">#00000000</color>
     <color name="red">#E01818</color>
     <color name="comment_background">#1D1D1D</color>
+    <color name="grey">#5B5B5B</color>
 </resources>

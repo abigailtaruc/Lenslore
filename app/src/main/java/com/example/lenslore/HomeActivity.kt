@@ -1,5 +1,6 @@
 package com.example.lenslore
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Layout
 import android.view.View
@@ -106,4 +107,10 @@ class HomeActivity : AppCompatActivity() {
     }
 
     //stop crash when result is zero, find way to not refresh
+    fun onUploadClicked(view: View?) {
+        // Create an Intent to navigate to the UploadActivity
+        val intent = Intent(this, UploadActivity::class.java)
+        startActivity(intent) // Start the UploadActivity
+    }
+
 }
