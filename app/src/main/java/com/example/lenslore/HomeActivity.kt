@@ -41,32 +41,32 @@ class HomeActivity : AppCompatActivity() {
         db = Database(this)
 
         var account = Account(1,"Account 1", "password1", "test1@")
-        db.insertData(account)
+        //db.insertData(account)
         account = Account(2,"Account 2", "password2", "test2@")
-        db.insertData(account)
+        //db.insertData(account)
         account = Account(3,"Account 3", "password3", "test3@")
-        db.insertData(account)
+        //db.insertData(account)
 
         var post = Post(2, R.drawable.test, "testcaption2", "10:00")
-        db.insertData(post)
+        //db.insertData(post)
         post = Post(3, R.drawable.mountain2, "testcaption3", "12:00")
-        db.insertData(post)
+        //db.insertData(post)
         post = Post(1, R.drawable.camera_icon, "testcaption1", "1:00")
-        db.insertData(post)
+        //db.insertData(post)
 
         var comment = Comment(1, 2, "a")
-        db.insertData(comment)
+        //db.insertData(comment)
         comment = Comment(1, 1, "aasd")
-        db.insertData(comment)
+        //db.insertData(comment)
         comment = Comment(2, 3, "aasd")
-        db.insertData(comment)
+        //db.insertData(comment)
 
         var like = Like(1, 2, 2)
-        db.insertData(like)
+        //db.insertData(like)
         like = Like(1, 2, 1)
-        db.insertData(like)
+        //db.insertData(like)
         like = Like(1, 1, 3)
-        db.insertData(like)
+        //db.insertData(like)
 
 
         postRecycler.adapter = PostAdapter(db.readPost(), this)
@@ -116,6 +116,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun openChat(view: View?) {
+        val intent = Intent(this, ChatActivity::class.java)
+        startActivity(intent)
+//        Toast.makeText(this, "worked", Toast.LENGTH_SHORT).show()
+    }
+
+    fun onSearch(view: View?) {
         val intent = Intent(this, ChatActivity::class.java)
         startActivity(intent)
 //        Toast.makeText(this, "worked", Toast.LENGTH_SHORT).show()
