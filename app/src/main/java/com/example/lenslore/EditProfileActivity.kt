@@ -4,7 +4,6 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -16,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class EditProfileActivity : AppCompatActivity() {
 
@@ -23,7 +23,7 @@ class EditProfileActivity : AppCompatActivity() {
 
     private lateinit var getContent: ActivityResultLauncher<String>
     private lateinit var takePicture: ActivityResultLauncher<Uri>
-    private var imageUri: Uri? = null
+    private var selectedImageResourceId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,7 @@ class EditProfileActivity : AppCompatActivity() {
 
         imageView = findViewById(R.id.imageView)
 
-        findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
+        findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
             showImagePickerOptions()
         }
 
@@ -45,15 +45,14 @@ class EditProfileActivity : AppCompatActivity() {
         getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let {
                 imageView.setImageURI(it)
+                selectedImageResourceId = null // Reset selected image resource ID
             }
         }
 
         // Initialize the ActivityResultLauncher for taking a picture
         takePicture = registerForActivityResult(ActivityResultContracts.TakePicture()) { success: Boolean ->
             if (success) {
-                imageUri?.let {
-                    imageView.setImageURI(it)
-                }
+                imageView.setImageURI(selectedImageResourceId?.let { resourceId -> Uri.parse("android.resource://${packageName}/${resourceId}") })
             }
         }
     }
@@ -93,18 +92,17 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     private fun pickImage() {
-        val options = arrayOf("Take Photo", "Choose from Gallery", "Cancel")
+        val options = arrayOf("Choose from Gallery", "Take Photo", "Cancel")
         val builder = android.app.AlertDialog.Builder(this)
         builder.setTitle("Choose your profile picture")
 
         builder.setItems(options) { dialog, which ->
             when (options[which]) {
-                "Take Photo" -> {
-                    imageUri = Uri.fromFile(createImageFile())
-                    takePicture.launch(imageUri)
-                }
                 "Choose from Gallery" -> {
                     getContent.launch("image/*")
+                }
+                "Take Photo" -> {
+                    takePicture.launch(null)
                 }
                 "Cancel" -> {
                     dialog.dismiss()
@@ -112,17 +110,6 @@ class EditProfileActivity : AppCompatActivity() {
             }
         }
         builder.show()
-    }
-
-    private fun createImageFile(): java.io.File {
-        val storageDir: java.io.File? = getExternalFilesDir(android.os.Environment.DIRECTORY_PICTURES)
-        return java.io.File.createTempFile(
-            "JPEG_${System.currentTimeMillis()}_", /* prefix */
-            ".jpg", /* suffix */
-            storageDir /* directory */
-        ).apply {
-            imageUri = Uri.fromFile(this)
-        }
     }
 
     companion object {
